@@ -9,6 +9,7 @@ export class DBService implements OnModuleInit {
     private readonly containers = [
         'auth',
         'user',
+        'services'
     ];
 
     constructor(
@@ -19,8 +20,8 @@ export class DBService implements OnModuleInit {
     }
 
     async onModuleInit() {
-        await this.createDatabaseIfNotExist();
-        await this.createTablesIfNotExist();
+        //await this.createDatabaseIfNotExist();
+        //await this.createTablesIfNotExist();
     }
 
     private async createDatabaseIfNotExist() {
