@@ -1,0 +1,1 @@
+export { IService } from './services.interface';
