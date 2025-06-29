@@ -14,6 +14,10 @@ export class CreateServiceDto {
     @IsNotEmpty()
     route: string;
 
+    @IsString()
+    @IsNotEmpty()
+    route_type: string;
+
     @IsNumber()
     @IsNotEmpty()
     amount: number;
@@ -21,6 +25,14 @@ export class CreateServiceDto {
     @IsString()
     @IsNotEmpty()
     pay: string;
+
+    @IsNumber()
+    @IsOptional()
+    viaticum?: number;
+    
+    @IsNumber()
+    @IsOptional()
+    fuel?: number;
 
     @IsString()
     @IsOptional()
