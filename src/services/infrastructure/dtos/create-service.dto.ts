@@ -19,6 +19,10 @@ export class CreateServiceDto {
     amount: number;
 
     @IsString()
+    @IsNotEmpty()
+    pay: string;
+
+    @IsString()
     @IsOptional()
     observation?: string;
 }

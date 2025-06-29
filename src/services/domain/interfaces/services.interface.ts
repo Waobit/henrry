@@ -4,6 +4,7 @@ export interface IService {
     client: string;
     route: string;
     amount: number;
+    pay: string;
     observation?: string;
     status?: 'active' | 'inactive' | 'locked' | 'deleted';
     created_at?: number;

@@ -23,7 +23,7 @@ export class ServicesAdapterRepository implements ServicesRepository {
     async findAll(): Promise<IService[]> {
         try {
             const querySpec = {
-                query: 'SELECT * FROM c WHERE AND c.status = @status',
+                query: 'SELECT * FROM c WHERE c.status = @status ORDER BY c.service_at DESC',
                 parameters: [{ name: '@status', value: 'active' }]
             };
 

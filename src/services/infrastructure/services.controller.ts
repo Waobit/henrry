@@ -16,7 +16,7 @@ export class ServicesController {
     }
 
     @Get()
-    async finAll(): Promise<ResponsesUtil> {
+    async findAll(): Promise<ResponsesUtil> {
         return await this.servicesService.findAll();
     }
 
