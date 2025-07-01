@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Param, Put, Get, Delete } from '@nestjs/common';
+import { Controller, Post, Body, Param, Query, Put, Get, Delete } from '@nestjs/common';
 
 import { Auth } from '../../auth/infrastructure/decorators';
 import { ResponsesUtil } from '../../common/utils';
@@ -16,8 +16,8 @@ export class ServicesController {
     }
 
     @Get()
-    async findAll(): Promise<ResponsesUtil> {
-        return await this.servicesService.findAll();
+    async findAll(@Query('routeType') routeType?: string): Promise<ResponsesUtil> {
+        return await this.servicesService.findAll(routeType);
     }
 
     @Get(':id')

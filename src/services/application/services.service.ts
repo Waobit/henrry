@@ -32,12 +32,18 @@ export class ServicesService {
         }
     }
 
-    async findAll(): Promise<ResponsesUtil> {
+    async findAll(routeType?: string): Promise<ResponsesUtil> {
+        console.log('routeType', routeType);
         try {
             const services = await this.serviceRepository.findAll();
             if (!services) throw new UnauthorizedException('Invalid credentials.');
 
-            return ResponsesUtil.response(200, MessagesConstant.service.find_all, [services]);
+            let filteredServices = services;
+            if (routeType) {
+                filteredServices = services.filter(service => service.route_type === routeType);
+            }
+
+            return ResponsesUtil.response(200, MessagesConstant.service.find_all, [filteredServices]);
         } catch (error) {
             if (error instanceof HttpException) throw error;
             throw new InternalServerErrorException(error.message);
