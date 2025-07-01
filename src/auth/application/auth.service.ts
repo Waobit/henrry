@@ -128,7 +128,6 @@ export class AuthService {
     async login(body: ILogin): Promise<ResponsesUtil> {
         try {
             const isEmail = body.user.includes("@");
-            console.log(body)
             const authFound = isEmail ? await this.authRepository.findByEmail(body.user) : await this.authRepository.findByUsername(body.user);
             if (!authFound || !(await bcrypt.compare(body.password, authFound.password))) {
                 throw new UnauthorizedException('Invalid credentials.');

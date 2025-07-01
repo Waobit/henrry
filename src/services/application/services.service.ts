@@ -33,7 +33,6 @@ export class ServicesService {
     }
 
     async findAll(routeType?: string): Promise<ResponsesUtil> {
-        console.log('routeType', routeType);
         try {
             const services = await this.serviceRepository.findAll();
             if (!services) throw new UnauthorizedException('Invalid credentials.');
